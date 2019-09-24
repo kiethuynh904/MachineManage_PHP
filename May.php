@@ -15,11 +15,24 @@ class May
     {
         $this->tenMay = readline("Nhap Ten May:");
         $this->maMay = readline("Nhap Ma May:");
-        $this->soLuongChiTietMay = readline("Nhap So Luong Chi Tiet May");
-        if(is_numeric($this->soLuongChiTietMay)){
-            for ($i = 0; $i < $this->soLuongChiTietMay; $i++) {
-                $this->loaiChiTietMay = readline("Chi Tiet Don => Nhap 1 || Chi Tiet Phuc => Nhap 2 : \n");
-                if ($this->loaiChiTietMay == "1") {
+        do {
+            $this->soLuongChiTietMay = readline("Co Bao Nhieu Chi Tiet May:");
+            if(!is_numeric($this->soLuongChiTietMay)){
+                echo "So Luong Chi Tiet May Phai La So \n";
+            }
+            elseif($this->soLuongChiTietMay<0){
+                echo"So Luong Chi Tiet May Khong Duoc La So Am \n";
+            }
+        } while (!is_numeric($this->soLuongChiTietMay) || $this->soLuongChiTietMay < 0);
+        for ($i = 0; $i < $this->soLuongChiTietMay; $i++) {
+            do{
+                $this->loaiChiTietMay = readline("Chi Tiet Don => Nhap 1 || Chi Tiet Phuc => Nhap 2 :");
+                if($this->loaiChiTietMay != 1 && $this->loaiChiTietMay !=2){
+                    echo "Vui Long Chi Chon 1 Hoac 2 \n";
+                }
+            }while($this->loaiChiTietMay != 1 && $this->loaiChiTietMay != 2);
+            if ($this->loaiChiTietMay == 1 || $this->loaiChiTietMay == 2) {
+                if ($this->loaiChiTietMay == 1) {
                     $chiTietDon = new ChiTietDon();
                     $chiTietDon->nhap();
                     $this->dsChiTietMay[] = $chiTietDon;
@@ -29,24 +42,20 @@ class May
                     $this->dsChiTietMay[] = $chiTietPhuc;
                 }
             }
-        }else{
-            echo"vui long nhap lai, so luong may phai la con so";
-            $this->nhap();
         }
+
     }
 
-    public function xuat()
+    public function xuatMay()
     {
-        echo "------THONG TIN MAY------ \n";
+
         echo "Ten May :" . $this->tenMay . "\n";
         echo "Ma May :" . $this->maMay . "\n";
-        echo "Danh Sach Chi Tiet:";
-        print_r($this->dsChiTietMay);
-
-//        for($i= 0 ; $i<$this->soLuongChiTietMay;$i++){
-//            echo"Thong Tin May Thu " . ($i+1) . "\n";
-//             $this->dsChiTietMay[$i]->xuat();
-//        }
+        echo "Danh Sach Chi Tiet:\n";
+//        print_r($this->dsChiTietMay);
+        for($i= 0 ; $i<$this->soLuongChiTietMay;$i++){
+             print_r($this->dsChiTietMay[$i]);
+        }
     }
 
     public function tinhTien()
