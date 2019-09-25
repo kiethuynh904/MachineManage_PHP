@@ -6,27 +6,33 @@ require_once "May.php";
 require_once "Kho.php";
 
 
+function myIsInt($value)
+{
+    $tmp = (int) $value;
+    if ($tmp == $value) {
+       return true;
+    } else {
+       return false;
+    }
+}
+
 echo "**********WELLCOME TO MACHINE MANAGER**********\n";
 echo "Danh Sach Chuc Nang\n";
 echo "1.Chi Tiet Don \n";
 echo "2.Chi Tiet Phuc \n";
 echo "3.May\n";
 echo "4.Kho\n";
+
 do {
     $luaChon = readline('Moi Nhap Lua Chon:');
-    var_dump($luaChon);
-    var_dump(is_double($luaChon));
-    var_dump(is_numeric($luaChon));
-    var_dump(($luaChon>=1 && $luaChon<=4) && is_double($luaChon));
-
-    if (($luaChon>=1 && $luaChon<=4) && !is_int($luaChon)) {
-        echo "Nhap Tu 1 Toi 4  :( ! \n";
+    if (!is_numeric($luaChon)) {
+        echo "Vui Lòng Nhập Lại, Chỉ Nhập Số \n";
+    } elseif ($luaChon < 1 || $luaChon > 4) {
+        echo "Vui Lòng Nhập Lại, Chỉ Nhập Từ 1 Tới 4 ! \n";
+    } elseif (($luaChon >= 1 && $luaChon <= 4) && !myIsInt($luaChon)) {
+        echo "Đừng Nhập Số Thập Phân Anh Ơi :( \n";
     }
-
-// elseif (!is_double($luaChon)) {
-//        echo "Nhap So Nguyen Di :( ! \n";
-//    }
-} while (($luaChon>=1 && $luaChon<=4) && !is_int($luaChon));
+} while (!is_numeric($luaChon) || $luaChon < 1 || $luaChon > 4 || ($luaChon >= 1 && $luaChon <= 4) && !myIsInt($luaChon));
 
 switch ($luaChon) {
     case 1:
@@ -54,16 +60,14 @@ switch ($luaChon) {
         echo "================================================================== \n";
         echo "----------------------------THONG TIN MAY-------------------------\n";
         $may->xuatMay();
-        echo "Gia Tien Cua May La: " . $may->tinhTien() . "\n";
-        echo "Khoi Luong Cua May La: " . $may->tinhKhoiLuong() . "\n";
         echo "================================================================== \n";
 
         break;
     case 4:
         $kho = new Kho();
-        $kho->nhapMay();
+        $kho->nhapKho();
         echo "================================================================== \n";
-        $kho->xuatMay();
+        $kho->xuatKho();
         echo "================================================================== \n";
         echo "---------------------------THONG KE KHO---------------------------\n";
         echo "Tong So Luong May: " . $kho->getSoLuongMay() . "\n";

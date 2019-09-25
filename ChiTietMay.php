@@ -12,7 +12,14 @@ abstract class ChiTietMay{
     public function getMaSo(){
         return $this->maChiTiet;
     }
-
+    public function myIsInt($value){
+        $tmp = (int) $value;
+        if ($tmp == $value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
     abstract function tinhTien();

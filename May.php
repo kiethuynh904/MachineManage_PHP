@@ -10,24 +10,27 @@ class May
     private $loaiChiTietMay;
     public function nhap()
     {
-        $this->tenMay = readline("Nhap Ten May:");
-        $this->maMay = readline("Nhap Ma May:");
+        $this->tenMay = readline("Nhập Tên Máy:");
+        $this->maMay = readline("Nhập Mã Máy:");
         do {
-            $this->soLuongChiTietMay = readline("Co Bao Nhieu Chi Tiet May:");
+            $this->soLuongChiTietMay = readline("Có Bao Nhiêu Chi Tiết Máy:");
             if(!is_numeric($this->soLuongChiTietMay)){
-                echo "So Luong Chi Tiet May Phai La So \n";
+                echo "Số lượng chi tiết máy phải là số, xin vui lòng thử lại \n";
             }
             elseif($this->soLuongChiTietMay<0){
-                echo"So Luong Chi Tiet May Khong Duoc La So Am \n";
+                echo"Số lượng chi tiết máy không được là số âm, xin vui lòng thử lại \n";
             }
-        } while (!is_numeric($this->soLuongChiTietMay) || $this->soLuongChiTietMay < 0);
+            elseif (!myIsInt($this->soLuongChiTietMay)){
+                echo"Số lượng chi tiết máy không được là số thập phân, xin vui lòng thử lại";
+            }
+        } while (!is_numeric($this->soLuongChiTietMay) || $this->soLuongChiTietMay < 0 || !myIsInt($this->soLuongChiTietMay));
         for ($i = 0; $i < $this->soLuongChiTietMay; $i++) {
             do{
-                $this->loaiChiTietMay = readline("Chi Tiet Don => Nhap 1 || Chi Tiet Phuc => Nhap 2 :");
-                if($this->loaiChiTietMay != 1 && $this->loaiChiTietMay !=2){
-                    echo "Vui Long Chi Chon 1 Hoac 2 \n";
+                $this->loaiChiTietMay = readline("Chi Tiết Đơn => Nhập 1 || Chi Tiết Phức => Nhập 2 :");
+                if($this->loaiChiTietMay != 1 && $this->loaiChiTietMay !=2 || !is_numeric($this->loaiChiTietMay)){
+                    echo "Vui lòng chỉ chọn 1 hoặc 2 \n";
                 }
-            }while($this->loaiChiTietMay != 1 && $this->loaiChiTietMay != 2);
+            }while($this->loaiChiTietMay != 1 && $this->loaiChiTietMay != 2 || !is_numeric($this->loaiChiTietMay));
             if ($this->loaiChiTietMay == 1 || $this->loaiChiTietMay == 2) {
                 if ($this->loaiChiTietMay == 1) {
                     $chiTietDon = new ChiTietDon();
@@ -42,13 +45,23 @@ class May
         }
 
     }
-
+    function myIsInt($value)
+    {
+        $tmp = (int) $value;
+        if ($tmp == $value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function xuatMay()
     {
 
         echo "Tên Máy :" . $this->tenMay . "\n";
         echo "Mã Máy :" . $this->maMay . "\n";
         echo "Danh Sách Chi Tiết :\n";
+        echo "Giá Của Máy Là:" . $this->tinhTien() ."\n";
+        echo "Khối Lượng Của Máy Là:" .$this->tinhKhoiLuong() ."\n";
         for($i= 0 ; $i<$this->soLuongChiTietMay;$i++){
              print_r($this->dsChiTietMay[$i]);
         }

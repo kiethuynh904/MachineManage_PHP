@@ -14,7 +14,7 @@ class Kho
         return $this->soLuongMay;
     }
 
-    function nhapMay()
+    function nhapKho()
     {
         $this->soLuongMay = readline("Nhập Số Lượng Máy Muốn Nhập Vào Kho:");
         $this->soLuongMay = trim($this->soLuongMay," ");
@@ -34,7 +34,7 @@ class Kho
         }
     }
 
-    function xuatMay()
+    function xuatKho()
     {
         echo "---------------------------THÔNG TIN KHO-------------------------- \n";
         if(sizeof($this->dsMay)==0){
