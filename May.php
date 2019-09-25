@@ -1,16 +1,13 @@
 <?php
-
 require_once "ChiTietDon.php";
 require_once "ChiTietPhuc.php";
-
 class May
 {
-    public $maMay;
-    public $tenMay;
-    public $soLuongChiTietMay;
-    public $dsChiTietMay = [];
-    public $loaiChiTietMay;
-
+    private $maMay;
+    private $tenMay;
+    private $soLuongChiTietMay;
+    private $dsChiTietMay = [];
+    private $loaiChiTietMay;
     public function nhap()
     {
         $this->tenMay = readline("Nhap Ten May:");
@@ -49,10 +46,9 @@ class May
     public function xuatMay()
     {
 
-        echo "Ten May :" . $this->tenMay . "\n";
-        echo "Ma May :" . $this->maMay . "\n";
-        echo "Danh Sach Chi Tiet:\n";
-//        print_r($this->dsChiTietMay);
+        echo "Tên Máy :" . $this->tenMay . "\n";
+        echo "Mã Máy :" . $this->maMay . "\n";
+        echo "Danh Sách Chi Tiết :\n";
         for($i= 0 ; $i<$this->soLuongChiTietMay;$i++){
              print_r($this->dsChiTietMay[$i]);
         }
@@ -60,37 +56,21 @@ class May
 
     public function tinhTien()
     {
-        if(sizeof($this->dsChiTietMay)==0){
-            echo "khong co bat ki chi tiet con nao de tinh";
-            die();
-        }
-        else{
             $tongTien = 0;
             for ($i = 0; $i < $this->soLuongChiTietMay; $i++) {
                 $tongTien += $this->dsChiTietMay[$i]->tinhTien();
             }
             return $tongTien;
-        }
-
     }
 
     public function tinhKhoiLuong()
     {
-        if(sizeof($this->dsChiTietMay)==0){
-            echo "khong co bat ki chi tiet con nao de tinh";
-            die();
-        }else{
             $tongKhoiLuong = 0 ;
             for($i = 0 ; $i < $this->soLuongChiTietMay;$i++){
                 $tongKhoiLuong += $this->dsChiTietMay[$i]->tinhKhoiLuong();
             }
             return $tongKhoiLuong;
-        }
-
     }
 }
 
-//$may = new May();
-//$may->nhap();
-//$may->xuat();
-//echo "Tong Tien May La:". $may->tinhTien() . "\n";
+

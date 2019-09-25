@@ -44,7 +44,8 @@ class ChiTietPhuc extends ChiTietMay
     function xuat()
     {
         for ($i = 0; $i < $this->soLuongChiTietCon; $i++) {
-            $this->dsChiTietCon[$i]->xuat();
+            echo "Thong Tin Chi Tiet Phuc Thu " . ($i+1) ."\n";
+            print_r($this->dsChiTietCon[$i]);
         }
     }
 

@@ -16,30 +16,35 @@ class Kho
 
     function nhapMay()
     {
-        $this->soLuongMay = readline("Nhap So Luong May Can Nhap:");
+        $this->soLuongMay = readline("Nhập Số Lượng Máy Muốn Nhập Vào Kho:");
+        $this->soLuongMay = trim($this->soLuongMay," ");
         if (is_numeric($this->soLuongMay) && $this->soLuongMay >= 0) {
             for ($i = 0; $i < $this->soLuongMay; $i++) {
-                echo "*****Nhap Thong Tin May Thu:" . "(" . ($i + 1) . ")" . "*****\n";
+                echo "*****Nhập Thông Tin Máy Thứ:" . "(" . ($i + 1) . ")" . "*****\n";
                 $may = new May();
                 $may->nhap();
                 $this->dsMay[] = $may;
             }
         } elseif ($this->soLuongMay < 0) {
-            echo "so luong may khong duoc la so am \n";
+            echo "Số lượng máy không được là số âm, xin vui lòng nhập lại\n";
             $this->nhapMay();
         } else {
-            echo "so luong may la con so, xin vui long thu lai \n";
+            echo "Số lượng máy phải là con số, xin vui lòng nhập lại \n";
             $this->nhapMay();
         }
     }
 
     function xuatMay()
     {
-        echo "---------------------------THONG TIN KHO-------------------------- \n";
-        for ($i = 0; $i < $this->soLuongMay; $i++) {
-            echo "Thong Tin May Thu " . ($i + 1) . "\n";
-            print_r($this->dsMay[$i]->xuatMay());
-            echo "------------------------------------------------------------------\n";
+        echo "---------------------------THÔNG TIN KHO-------------------------- \n";
+        if(sizeof($this->dsMay)==0){
+        echo"Kho Trống \n";
+        }else{
+            for ($i = 0; $i < $this->soLuongMay; $i++) {
+                echo "Thông Tin Máy Thứ " . ($i + 1) . "\n";
+                print_r($this->dsMay[$i]->xuatMay());
+                echo "------------------------------------------------------------------\n";
+            }
         }
 
     }
@@ -62,4 +67,5 @@ class Kho
         return $tongKhoiLuong;
     }
 }
+
 

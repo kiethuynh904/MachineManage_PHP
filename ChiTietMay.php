@@ -1,8 +1,7 @@
 <?php
+//Class Chi Tiet May
 abstract class ChiTietMay{
     public $maChiTiet;
-
-
     public function nhap(){
 
         $this->maChiTiet = readline('Nhap Ma Chi Tiet:');
