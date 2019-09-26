@@ -28,24 +28,21 @@ class ChiTietPhuc extends ChiTietMay
                     echo "Vui lòng chỉ chọn 1 hoặc 2 \n";
                 }
             } while ($this->loaiChiTiet != 1 && $this->loaiChiTiet != 2 || !is_numeric($this->loaiChiTiet));
-            if ($this->loaiChiTiet == 1 || $this->loaiChiTiet == 2) {
+                $chiTiet = null ;
                 if ($this->loaiChiTiet == 1) {
-                    $chiTietDon = new ChiTietDon();
-                    $chiTietDon->nhap();
-                    $this->dsChiTietCon[] = $chiTietDon;
+                    $chiTiet = new ChiTietDon();
                 } else {
-                    $chiTietPhuc = new ChiTietPhuc();
-                    $chiTietPhuc->nhap();
-                    $this->dsChiTietCon[] = $chiTietPhuc;
+                    $chiTiet = new ChiTietPhuc();
                 }
+                $chiTiet->nhap();
+                $this->dsChiTietCon[] = $chiTiet;
             }
-        }
     }
 
     public function xuat()
     {
         for ($i = 0; $i < $this->soLuongChiTietCon; $i++) {
-            echo "Thong Tin Chi Tiet Phuc Thu " . ($i + 1) . "\n";
+            echo "Thông Tin Chi Tiết Phức Thứ " . ($i + 1) . "\n";
             print_r($this->dsChiTietCon[$i]);
         }
     }

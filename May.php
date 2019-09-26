@@ -10,8 +10,19 @@ class May
     private $loaiChiTietMay;
     public function nhap()
     {
-        $this->tenMay = readline("Nhập Tên Máy:");
-        $this->maMay = readline("Nhập Mã Máy:");
+        do{
+            $this->tenMay = readline("Nhập Tên Máy:");
+            if(empty(trim($this->tenMay))){
+                echo "Tên máy không được bỏ trống, vui lòng nhập lại \n";
+            }
+        }while(empty(trim($this->tenMay," ")));
+        do{
+            $this->maMay = readline("Nhập Mã Máy:");
+            if(empty(trim($this->maMay))){
+                echo "Mã máy không được bỏ trống, vui lòng nhập lại \n";
+            }
+        }while(empty(trim($this->maMay," ")));
+
         do {
             $this->soLuongChiTietMay = readline("Có Bao Nhiêu Chi Tiết Máy:");
             if(!is_numeric($this->soLuongChiTietMay)){
@@ -32,15 +43,15 @@ class May
                 }
             }while($this->loaiChiTietMay != 1 && $this->loaiChiTietMay != 2 || !is_numeric($this->loaiChiTietMay));
             if ($this->loaiChiTietMay == 1 || $this->loaiChiTietMay == 2) {
+                $chiTiet = null;
                 if ($this->loaiChiTietMay == 1) {
-                    $chiTietDon = new ChiTietDon();
-                    $chiTietDon->nhap();
-                    $this->dsChiTietMay[] = $chiTietDon;
+                    $chiTiet = new ChiTietDon();
+
                 } else {
-                    $chiTietPhuc = new ChiTietPhuc();
-                    $chiTietPhuc->nhap();
-                    $this->dsChiTietMay[] = $chiTietPhuc;
+                    $chiTiet = new ChiTietPhuc();
                 }
+                $chiTiet->nhap();
+                $this->dsChiTietMay[] = $chiTiet;
             }
         }
 

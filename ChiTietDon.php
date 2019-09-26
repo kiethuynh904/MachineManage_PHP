@@ -28,7 +28,7 @@ class ChiTietDon extends ChiTietMay
                 echo "Khối lượng phải là số, vui lòng nhập lại \n";
             }
             elseif($this->khoiLuong<0){
-                echo "Khối lượng không được là số âm, xin vui lòng nhập lại";
+                echo "Khối lượng không được là số âm, xin vui lòng nhập lại \n";
             }
         } while (!is_numeric($this->khoiLuong) || $this->khoiLuong < 0 );
     }
