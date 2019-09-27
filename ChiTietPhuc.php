@@ -24,10 +24,10 @@ class ChiTietPhuc extends ChiTietMay
         for ($i = 0; $i < $this->soLuongChiTietCon; $i++) {
             do {
                 $this->loaiChiTiet = readline("Chi Tiết Đơn => Nhập 1 || Chi Tiết Phức => Nhập 2 :");
-                if ($this->loaiChiTiet != 1 && $this->loaiChiTiet != 2 || !is_numeric($this->loaiChiTiet)) {
+                if ($this->loaiChiTiet != 1 && $this->loaiChiTiet != 2 ) {
                     echo "Vui lòng chỉ chọn 1 hoặc 2 \n";
                 }
-            } while ($this->loaiChiTiet != 1 && $this->loaiChiTiet != 2 || !is_numeric($this->loaiChiTiet));
+            } while ($this->loaiChiTiet != 1 && $this->loaiChiTiet != 2 );
                 $chiTiet = null ;
                 if ($this->loaiChiTiet == 1) {
                     $chiTiet = new ChiTietDon();

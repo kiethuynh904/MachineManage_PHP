@@ -17,7 +17,6 @@ class Kho
     function nhapKho()
     {
         $this->soLuongMay = readline("Nhập Số Lượng Máy Muốn Nhập Vào Kho:");
-        $this->soLuongMay = trim($this->soLuongMay," ");
         if (is_numeric($this->soLuongMay) && $this->soLuongMay >= 0) {
             for ($i = 0; $i < $this->soLuongMay; $i++) {
                 echo "*****Nhập Thông Tin Máy Thứ:" . "(" . ($i + 1) . ")" . "*****\n";

@@ -15,7 +15,7 @@ function myIsInt($value)
        return false;
     }
 }
-do{
+
     echo "**********WELLCOME TO MACHINE MANAGER**********\n";
     echo "Danh Sách Chức Năng\n";
     echo "1.Chi Tiết Đơn \n";
@@ -80,7 +80,6 @@ do{
             die("--------------See You Again-------------- \n");
             break;
     }
-}while($luaChon != 0);
 
 
 

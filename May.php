@@ -56,7 +56,7 @@ class May
         }
 
     }
-    function myIsInt($value)
+    public function myIsInt($value)
     {
         $tmp = (int) $value;
         if ($tmp == $value) {
