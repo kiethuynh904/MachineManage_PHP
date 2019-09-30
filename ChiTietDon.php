@@ -1,13 +1,25 @@
 <?php
 require_once "ChiTietMay.php";
 
+/**
+ * @desc Class này giúp người dùng nhập xuất giá và khối lượng chi tiết đơn
+ * @author kiethuynh0904@gmail.com
+ * @extend Chi Tiết Máy
+ */
 class ChiTietDon extends ChiTietMay
 {
+    /**
+     * @type number
+     */
     private $gia;
+    /**
+     * @type number
+     */
     private $khoiLuong;
 
     /**
-     * @return mixed
+     * @desc Hàm nhập giá và khối lượng
+     * @input Giá và khối lượng
      */
     public function nhap()
     {
@@ -17,21 +29,24 @@ class ChiTietDon extends ChiTietMay
 
             if (!is_numeric($this->gia)) {
                 echo "Giá phải là số, vui lòng nhập lại \n";
-            }
-            elseif($this->gia<0){
+            } elseif ($this->gia < 0) {
                 echo "Giá không được là số âm, vui lòng nhập lại \n";
             }
         } while (!is_numeric($this->gia) || $this->gia < 0);
         do {
             $this->khoiLuong = readline('Nhap Khoi Luong:');
-            if (!is_numeric($this->khoiLuong) && $this->khoiLuong>0) {
+            if (!is_numeric($this->khoiLuong) && $this->khoiLuong > 0) {
                 echo "Khối lượng phải là số, vui lòng nhập lại \n";
-            }
-            elseif($this->khoiLuong<0){
+            } elseif ($this->khoiLuong < 0) {
                 echo "Khối lượng không được là số âm, xin vui lòng nhập lại \n";
             }
-        } while (!is_numeric($this->khoiLuong) || $this->khoiLuong < 0 );
+        } while (!is_numeric($this->khoiLuong) || $this->khoiLuong < 0);
     }
+
+    /**
+     * @desc Hàm Xuất Thông Tin Chi Tiết đơn
+     * @output Giá và khối lượng
+     */
     public function xuat()
     {
         parent::xuat();
@@ -39,12 +54,18 @@ class ChiTietDon extends ChiTietMay
         echo "Khối Lượng:" . $this->khoiLuong . "\n";
     }
 
+    /**
+     * @return number : trả về giá của chi tiết đơn
+     */
     public function tinhTien()
     {
         // TODO: Implement TinhTien() method.
         return $this->gia;
     }
 
+    /**
+     * @return number : trả về khối lượng chi tiết đơn
+     */
     public function tinhKhoiLuong()
     {
         // TODO: Implement TinhKhoiLuong() method.
