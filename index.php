@@ -4,7 +4,6 @@ require_once "ChiTietDon.php";
 require_once "ChiTietPhuc.php";
 require_once "May.php";
 require_once "Kho.php";
-require_once "kiemTraSoNguyen.php";
 
     echo "**********WELLCOME TO MACHINE MANAGER**********\n";
     echo "Danh Sách Chức Năng\n";
@@ -20,10 +19,10 @@ require_once "kiemTraSoNguyen.php";
             echo "Vui Lòng Nhập Lại, Chỉ Nhập Số \n";
         } elseif ($luaChon < 0 || $luaChon > 4) {
             echo "Vui Lòng Nhập Lại, Chỉ Nhập Từ 1 Tới 4 ! \n";
-        } elseif (($luaChon >= 0 && $luaChon <= 4) && !myIsInt($luaChon)) {
+        } elseif (($luaChon >= 0 && $luaChon <= 4) && !is_int($luaChon*1)) {
             echo "Đừng Nhập Số Thập Phân Anh Ơi :( \n";
         }
-    } while (!is_numeric($luaChon) || $luaChon < 0 || $luaChon > 4 || ($luaChon >= 0 && $luaChon <= 4) && !myIsInt($luaChon));
+    } while (!is_numeric($luaChon) || $luaChon < 0 || $luaChon > 4 || ($luaChon >= 0 && $luaChon <= 4) && !is_int($luaChon*1));
 
     switch ($luaChon) {
         case 1:

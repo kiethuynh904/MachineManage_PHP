@@ -1,7 +1,6 @@
 <?php
 require_once "ChiTietDon.php";
 require_once "ChiTietPhuc.php";
-require_once "kiemTraSoNguyen.php";
 
 class May
 {
@@ -33,10 +32,10 @@ class May
             elseif($this->soLuongChiTietMay<0){
                 echo"Số lượng chi tiết máy không được là số âm, xin vui lòng thử lại \n";
             }
-            elseif (!myIsInt($this->soLuongChiTietMay)){
+            elseif (!is_int($this->soLuongChiTietMay*1)($this->soLuongChiTietMay)){
                 echo"Số lượng chi tiết máy không được là số thập phân, xin vui lòng thử lại";
             }
-        } while (!is_numeric($this->soLuongChiTietMay) || $this->soLuongChiTietMay < 0 || !myIsInt($this->soLuongChiTietMay));
+        } while (!is_numeric($this->soLuongChiTietMay) || $this->soLuongChiTietMay < 0 || !is_int($this->soLuongChiTietMay*1));
         for ($i = 0; $i < $this->soLuongChiTietMay; $i++) {
             do{
                 $this->loaiChiTietMay = readline("Chi Tiết Đơn => Nhập 1 || Chi Tiết Phức => Nhập 2 :");

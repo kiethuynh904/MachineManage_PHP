@@ -23,10 +23,10 @@ class Kho
             elseif($this->soLuongMay<0){
                 echo"Số lượng kho không được là số âm, xin vui lòng thử lại \n";
             }
-            elseif (!myIsInt($this->soLuongMay)){
+            elseif (!is_int($this->soLuongMay*1)){
                 echo"Số lượng kho không được là số thập phân, xin vui lòng thử lại";
             }
-        } while (!is_numeric($this->soLuongMay) || $this->soLuongMay < 0 || !myIsInt($this->soLuongMay));
+        } while (!is_numeric($this->soLuongMay) || $this->soLuongMay < 0 || !is_int($this->soLuongMay*1));
         if (is_numeric($this->soLuongMay) && $this->soLuongMay >= 0) {
             for ($i = 0; $i < $this->soLuongMay; $i++) {
                 echo "*****Nhập Thông Tin Máy Thứ:" . "(" . ($i + 1) . ")" . "*****\n";
