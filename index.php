@@ -18,7 +18,7 @@ do {
     if (!is_numeric($luaChon)) {
         echo "Vui Lòng Nhập Lại, Chỉ Nhập Số \n";
     } elseif ($luaChon < 0 || $luaChon > 4) {
-        echo "Vui Lòng Nhập Lại, Chỉ Nhập Từ 1 Tới 4 ! \n";
+        echo "Vui Lòng Nhập Lại, Chỉ Nhập Từ 0 Tới 4 ! \n";
     } elseif (($luaChon >= 0 && $luaChon <= 4) && !is_int($luaChon * 1)) {
         echo "Đừng Nhập Số Thập Phân Anh Ơi :( \n";
     }
