@@ -1,9 +1,8 @@
 <?php
 //Class Chi Tiet May
 abstract class ChiTietMay{
-    public $maChiTiet;
+    private $maChiTiet;
     public function nhap(){
-
         do{
             $this->maChiTiet = readline('Nhap Ma Chi Tiet:');
             if(empty(trim($this->maChiTiet))){
@@ -17,15 +16,6 @@ abstract class ChiTietMay{
     public function getMaSo(){
         return $this->maChiTiet;
     }
-    public function myIsInt($value){
-        $tmp = (int) $value;
-        if ($tmp == $value) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
 
     abstract function tinhTien();
     abstract function tinhKhoiLuong();

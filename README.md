@@ -29,4 +29,10 @@
     - [x] Người dùng nhập chữ => yêu cầu người dùng nhập lại 
     - [x] Người dùng nhập số bé hơn 0 => yêu cầu người dùng không được nhập số âm
     - [x] Người dùng nhập số thập phân => yêu cầu không được nhập số thập phân
-  
+   #### Menu
+   * ###### Chọn Chức Năng (Chức Năng Từ 0 Tới 4)
+    - [x] Người dùng nhập chữ => yêu cầu người dùng chỉ nhập số 
+    - [x] Người dùng nhập ngoài vùng 0 tới 4 => yêu cầu người dùng nhập trong khoảng 0 tới 4
+    - [x] Người dùng nhập số thập phân => yêu cầu người dùng không được nhập số thập phân
+
+    

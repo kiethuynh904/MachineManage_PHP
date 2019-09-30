@@ -4,17 +4,7 @@ require_once "ChiTietDon.php";
 require_once "ChiTietPhuc.php";
 require_once "May.php";
 require_once "Kho.php";
-
-
-function myIsInt($value)
-{
-    $tmp = (int) $value;
-    if ($tmp == $value) {
-       return true;
-    } else {
-       return false;
-    }
-}
+require_once "kiemTraSoNguyen.php";
 
     echo "**********WELLCOME TO MACHINE MANAGER**********\n";
     echo "Danh Sách Chức Năng\n";

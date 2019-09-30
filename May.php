@@ -1,6 +1,8 @@
 <?php
 require_once "ChiTietDon.php";
 require_once "ChiTietPhuc.php";
+require_once "kiemTraSoNguyen.php";
+
 class May
 {
     private $maMay;
@@ -56,15 +58,6 @@ class May
         }
 
     }
-    public function myIsInt($value)
-    {
-        $tmp = (int) $value;
-        if ($tmp == $value) {
-            return true;
-        } else {
-            return false;
-        }
-    }
     public function xuatMay()
     {
 
@@ -77,7 +70,6 @@ class May
              print_r($this->dsChiTietMay[$i]);
         }
     }
-
     public function tinhTien()
     {
             $tongTien = 0;

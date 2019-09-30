@@ -13,10 +13,20 @@ class Kho
     {
         return $this->soLuongMay;
     }
-
     function nhapKho()
     {
-        $this->soLuongMay = readline("Nhập Số Lượng Máy Muốn Nhập Vào Kho:");
+        do {
+            $this->soLuongMay = readline("Nhập Số Lượng Máy Muốn Nhập Vào Kho:");
+            if(!is_numeric($this->soLuongMay)){
+                echo "Số lượng kho phải là số, xin vui lòng thử lại \n";
+            }
+            elseif($this->soLuongMay<0){
+                echo"Số lượng kho không được là số âm, xin vui lòng thử lại \n";
+            }
+            elseif (!myIsInt($this->soLuongMay)){
+                echo"Số lượng kho không được là số thập phân, xin vui lòng thử lại";
+            }
+        } while (!is_numeric($this->soLuongMay) || $this->soLuongMay < 0 || !myIsInt($this->soLuongMay));
         if (is_numeric($this->soLuongMay) && $this->soLuongMay >= 0) {
             for ($i = 0; $i < $this->soLuongMay; $i++) {
                 echo "*****Nhập Thông Tin Máy Thứ:" . "(" . ($i + 1) . ")" . "*****\n";
@@ -32,7 +42,6 @@ class Kho
             $this->nhapMay();
         }
     }
-
     function xuatKho()
     {
         echo "---------------------------THÔNG TIN KHO-------------------------- \n";
@@ -45,9 +54,7 @@ class Kho
                 echo "------------------------------------------------------------------\n";
             }
         }
-
     }
-
     function tinhTongTien()
     {
         $tongTien = 0;
@@ -56,7 +63,6 @@ class Kho
         }
         return $tongTien;
     }
-
     function tinhTongKhoiLuong()
     {
         $tongKhoiLuong = 0;
