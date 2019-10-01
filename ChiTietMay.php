@@ -40,7 +40,7 @@ abstract class ChiTietMay
     }
 
     /**
-     * @desc abtract method định nghĩa method tính tiền cho các lớp con kế thừa có thể dùng hoặc không
+     * @desc abtract method định nghĩa method tính tiền cho các lớp con kế thừa 
      */
     abstract function tinhTien();
 
