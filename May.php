@@ -56,7 +56,7 @@ class May
                 echo "Số lượng chi tiết máy phải là số, xin vui lòng thử lại \n";
             } elseif ($this->soLuongChiTietMay < 0) {
                 echo "Số lượng chi tiết máy không được là số âm, xin vui lòng thử lại \n";
-            } elseif (!is_int($this->soLuongChiTietMay * 1)($this->soLuongChiTietMay)) {
+            } elseif (!is_int($this->soLuongChiTietMay * 1)) {
                 echo "Số lượng chi tiết máy không được là số thập phân, xin vui lòng thử lại";
             }
         } while (!is_numeric($this->soLuongChiTietMay) || $this->soLuongChiTietMay < 0 || !is_int($this->soLuongChiTietMay * 1));
